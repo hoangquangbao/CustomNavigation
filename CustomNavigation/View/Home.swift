@@ -32,7 +32,7 @@ struct Home: View {
 //                                    NotificationCenter.default.post(name: NSNotification.Name("UPDATENAVBAR"), object: nil)
 //                                }
                                 .onTapGesture {
-                                    setNavbarColor(color: .yellow)
+                                    setNavbarColor(color: .clear)
                                 }
                         }
                         .frame(height: 180)

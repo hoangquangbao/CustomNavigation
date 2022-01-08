@@ -64,6 +64,20 @@ extension UINavigationController{
             
             let color = info["color"] as! Color
             
+            //MARK: You can set transparent appearance for NavBar
+            if color == .clear{
+                
+                //Transparent Nav Bar
+                let transparentAppearance = UINavigationBarAppearance()
+                transparentAppearance.configureWithTransparentBackground()
+                
+                navigationBar.standardAppearance = transparentAppearance
+                navigationBar.scrollEdgeAppearance = transparentAppearance
+                navigationBar.compactAppearance = transparentAppearance
+                
+                return
+            }
+            
             //MARK: Updating Nav Bar Color
             let appearance = UINavigationBarAppearance()
             appearance.backgroundColor = UIColor(color)
@@ -77,7 +91,7 @@ extension UINavigationController{
             //MARK: Reset Nav Bar
             let appearance = UINavigationBarAppearance()
             
-            //To dismiss shadow
+            //To dismiss shadow by transparent appearance
             let transparentAppearance = UINavigationBarAppearance()
             transparentAppearance.configureWithTransparentBackground()
 
