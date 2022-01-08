@@ -31,6 +31,13 @@ extension View{
     
     func setNavbarTitleColor(color: Color) {
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            NotificationCenter.default.post(name: NSNotification.Name("UPDATENAVBAR"), object: nil, userInfo: [
+                //Sending Color
+                "color" : color,
+                "forTitle": true
+            ])
+        }
     }
 }
 
@@ -76,6 +83,23 @@ extension UINavigationController{
                 navigationBar.compactAppearance = transparentAppearance
                 
                 return
+            }
+            
+            if let _ = info["forTitle"]{
+                
+                //MARK: Title color
+                //Update color in Appearance
+                navigationBar.standardAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(color)]
+                navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: UIColor(color)]
+                
+                navigationBar.scrollEdgeAppearance?.largeTitleTextAttributes = [.foregroundColor: UIColor(color)]
+                navigationBar.scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor: UIColor(color)]
+                
+                navigationBar.compactAppearance?.largeTitleTextAttributes = [.foregroundColor: UIColor(color)]
+                navigationBar.compactAppearance?.titleTextAttributes = [.foregroundColor: UIColor(color)]
+                
+                return
+
             }
             
             //MARK: Updating Nav Bar Color
