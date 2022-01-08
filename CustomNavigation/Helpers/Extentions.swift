@@ -21,6 +21,14 @@ extension View{
         }
     }
     
+    func resetNavBar() {
+        
+        //MARK: Resetting Nav Bar
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            NotificationCenter.default.post(name: NSNotification.Name("UPDATENAVBAR"), object: nil)
+        }
+    }
+    
     func setNavbarTitleColor(color: Color) {
         
     }
@@ -66,7 +74,12 @@ extension UINavigationController{
         }
         else {
 
-            //Reset Nav Bar
+            //MARK: Reset Nav Bar
+            let appearance = UINavigationBarAppearance()
+            
+            navigationBar.standardAppearance = appearance
+            navigationBar.scrollEdgeAppearance = appearance
+            navigationBar.compactAppearance = appearance
         }
     }
 }

@@ -14,7 +14,7 @@ struct Home: View {
             
             ScrollView(.vertical, showsIndicators: false){
                 
-                VStack(spacing: 15){
+                VStack(spacing: 8){
                     
                     ForEach(1...15, id: \.self){ index in
                         
@@ -36,11 +36,19 @@ struct Home: View {
                                 }
                         }
                         .frame(height: 180)
-                        .padding(.horizontal, 5)
                     }
                 }
+                .padding(8)
             }
             .navigationTitle("Menu")
+            .toolbar {
+                Button {
+                    resetNavBar()
+                } label: {
+                    Text("RESET")
+                }
+
+            }
         }
     }
 }
