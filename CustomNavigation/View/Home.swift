@@ -18,7 +18,7 @@ struct Home: View {
             
             ScrollView(.vertical, showsIndicators: false){
                 
-                VStack(spacing: 8){
+                VStack(spacing: 10){
                     
                     //Navigation Bar Color
                     Text("Navigation Bar Color")
