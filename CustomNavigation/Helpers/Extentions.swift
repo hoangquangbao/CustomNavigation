@@ -77,8 +77,13 @@ extension UINavigationController{
             //MARK: Reset Nav Bar
             let appearance = UINavigationBarAppearance()
             
+            //To dismiss shadow
+            let transparentAppearance = UINavigationBarAppearance()
+            transparentAppearance.configureWithTransparentBackground()
+
+            
             navigationBar.standardAppearance = appearance
-            navigationBar.scrollEdgeAppearance = appearance
+            navigationBar.scrollEdgeAppearance = transparentAppearance
             navigationBar.compactAppearance = appearance
         }
     }
