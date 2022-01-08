@@ -28,6 +28,12 @@ struct Home: View {
                                 .frame(width: size.width, height: size.height)
                                 .cornerRadius(10)
                                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(.gray, lineWidth: 1))
+//                                .onTapGesture {
+//                                    NotificationCenter.default.post(name: NSNotification.Name("UPDATENAVBAR"), object: nil)
+//                                }
+                                .onTapGesture {
+                                    setNavbarColor(color: .yellow)
+                                }
                         }
                         .frame(height: 180)
                         .padding(.horizontal, 5)
